@@ -1,0 +1,25 @@
+# BASE URL
+@host = http://localhost:8080
+@SM0 = "smart-meter-0";
+@SM1 = "smart-meter-1";
+@SM2 = "smart-meter-2";
+@SM3 = "smart-meter-3";
+
+# Read meter
+GET {{host}}/readings/read/{{SM0}} http/1.1
+
+### 
+
+# Get recommneded plans
+GET {{host}}/price-plans/recommend/smart-meter-0 http/1.1
+
+###
+
+# Compare all price plans
+GET {{host}}/price-plans/compare-all/smart-meter-0 http/1.1
+
+### 
+# Store readings
+POST {{host}}/readings/store http/1.1
+Content-Type: application/json 
+{}
